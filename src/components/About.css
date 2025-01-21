@@ -1,0 +1,38 @@
+/* About.css */
+
+/* Styling for the heading */
+.about-heading {
+    font-size: 1.7rem;
+    font-weight: italic;
+    color: #c2c9cf;
+    margin-bottom: 20px;
+}
+
+/* Styling for the introductory text */
+.intro-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #879aac;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Styling for the detailed text */
+.detail-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #879aac;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-heading {
+        font-size: 2rem;
+    }
+
+    .intro-text,
+    .detail-text {
+        font-size: 1rem;
+    }
+}

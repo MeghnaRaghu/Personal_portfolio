@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+/* Apply background color to the entire page */
+body {
+  background-color: #343a40; /* Use the same color as the navbar */
+  color: #f8f9fa; /* Adjust text color for readability */
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Center Navbar.Brand */
+.navbar {
+  background-color: #172633 !important;
+  padding: 10px 20px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between brand and links */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand {
+  font-size: 2.5rem;
+  color: #ecf0f5 !important;
+  margin: 0 auto; /* Center align the brand */
+  position: absolute; /* Make it independent of flex alignment */
+  left: 30%; /* Move to center */
+  transform: translateX(-50%); /* Center the brand text */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-toggler {
+  border-color: #f8f9fa !important; /* Adjust toggle button color */
+}
+
+.navbar-nav {
+  margin-left: auto; /* Ensure nav items are aligned to the right */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link {
+  color: #f8f9fa !important;
+  margin-left: 25px; /* Space between the links */
+  font-size: 1.1rem; /* Adjust font size */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link:hover {
+  color: #007bff !important;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 30px; /* Space between navbar items */
+}
+
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+  .nav-item {
+    margin: 10px 0; /* Adjust space between items on mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navbar-collapse {
+    justify-content: center;
+  }
+  .nav-item {
+    margin: 10px 0; /* Vertical spacing for mobile */
   }
 }

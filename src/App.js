@@ -1,36 +1,51 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 
 import About from './components/About';
-import Contact from './components/Contact';
+import Education from './components/Education';
+import Contacts from './components/Contacts';  // Import the Contact component
 import Project from './components/Project';
+import ProjectDetails from './components/ProjectDetails'; // Import ProjectDetails component
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        {/* Header with Navigation Links */}
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">My Portfolio</Navbar.Brand>
-          <Nav className="ml-auto">
-            <Nav.Link href="/">About</Nav.Link>
-            <Nav.Link href="/projects">Projects</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
+    <div className="App">
+      {/* Header with Navigation Links */}
+      <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+        <Navbar.Brand as={Link} to="/">My Portfolio</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ml-auto"> {/* This ensures the items are aligned to the right */}
+            <Nav.Item>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/education">Education</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+            </Nav.Item>
           </Nav>
-        </Navbar>
+        </Navbar.Collapse>
+      </Navbar>
 
-        {/* Main content */}
-        <Container>
-          <Switch>
-            <Route exact path="/" component={About} />
-            <Route path="/projects" component={Project} />
-            <Route path="/contact" component={Contact} />
-          </Switch>
-        </Container>
-      </div>
-    </Router>
+      {/* Main content */}
+      <Container style={{ marginTop: '70px' }}> {/* To give space below the fixed navbar */}
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/projects" element={<Project />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} /> {/* Route for ProjectDetails */}
+          <Route path="/contact" element={<Contacts />} />  {/* Render the Contact page */}
+        </Routes>
+      </Container>
+    </div>
   );
 }
 
