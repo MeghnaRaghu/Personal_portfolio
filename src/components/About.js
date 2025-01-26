@@ -1,17 +1,31 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';  // Import Row and Col for grid layout
-import './About.css';  // Importing external CSS file for additional styles
+import { Container, Row, Col } from 'react-bootstrap';
+import './About.css';
+import myPhoto from '../assets/images/myphoto.jpg';
 
 function About() {
   return (
-    <Container style={{ marginTop: '20px', textAlign: 'center' }}>
-      <Row>
-        <Col md={12}>
-          <h2 className="about-heading">About Me</h2>
-          <p className="intro-text">
-            I'm Meghna Raghu, an Associate Software Engineer at Tarento Technologies with a passion for Artificial Intelligence (AI) and Machine Learning (ML). I hold a Master’s in Computer Applications (MCA) and enjoy using AI and ML to solve real-world challenges.
+    <Container className="about-container">
+      <Row className="align-items-center">
+        <Col xs={12} md={4} className="photo-col">
+          <img
+            src={myPhoto}
+            alt="Meghna Raghu"
+            className="profile-photo"
+            data-aos="zoom-in"
+          />
+        </Col>
+        <Col xs={12} md={8} className="text-col">
+          <h1 className="name-heading" data-aos="fade-down">
+            Hi! I'm Meghna Raghu
+          </h1>
+          <h2 className="about-heading" data-aos="fade-up">
+            About Me
+          </h2>
+          <p className="intro-text" data-aos="fade-right" data-aos-delay="200">
+            An Associate Software Engineer at Tarento Technologies with a Master's in Computer Applications (MCA). I have a strong foundation in computer applications and a passion for exploring new technologies in Artificial Intelligence (AI) and Machine Learning (ML). I'm always excited to learn and apply AI/ML solutions to real-world challenges.
           </p>
-          <p className="detail-text">
+          <p className="detail-text" data-aos="fade-left" data-aos-delay="400">
             I am eager to explore new technologies and contribute to innovations in intelligent systems and automation. I am constantly learning and excited about the potential of AI to improve lives.
           </p>
         </Col>

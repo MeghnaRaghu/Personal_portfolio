@@ -1,51 +1,100 @@
-/* Contacts.css */
-
-/* Styling for the contact card */
-.contact-card {
-    background-color: #dfebeb; /* Light blue background */
-    border-radius: 8px; /* Rounded corners */
+/* Container for the contact page */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    border: 2px solid #bfc7f3; /* Border color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-}
-
-/* Styling for the card body */
-.contact-card .card-body {
-    text-align: lcenter;
-}
-
-/* Styling for the card title */
-.contact-card .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #3f51b5; /* Change the title text color to blue */
-}
-
-/* Styling for the card text */
-.contact-card .card-text {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Header styling */
+  .contact-header {
+    font-size: 2rem;
+    color: #8c99e4;
+    margin-bottom: 30px;
+  }
+  
+  /* Styling for contact details */
+  .contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* Card styling */
+  .contact-card {
+    flex: 1 1 45%;
+    max-width: 45%;
+    background-color: #f7f9fc;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Icon styling */
+  .contact-icon {
+    font-size: 2rem;
+    color: #3f51b5;
+    margin-bottom: 10px;
+  }
+  
+  /* Button styling */
+  .contact-button {
+    margin-top: 20px;
+    background-color: #3f51b5;
+    border: none;
+    padding: 10px 20px;
     font-size: 1rem;
-    color: #6c757d; /* Gray color for the text */
-}
-
-/* Styling for the list */
-ul {
-    padding-left: 0;
-    font-size: 1.1rem;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
-/* Styling for the button */
-button {
-    margin-top: 10px;
-    background-color: #3f51b5; /* Button color matching the title */
-    border-color: #3f51b5;
-}
-
-/* Styling for button hover effect */
-button:hover {
-    background-color: #303f9f; /* Darker blue on hover */
-    border-color: #303f9f;
-}
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #303f9f;
+    transform: scale(1.05);
+  }
+  
+  /* Animation for fade-in effect */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for slide-in effect */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .contact-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .contact-header {
+      font-size: 1.8rem;
+    }
+  }
+  

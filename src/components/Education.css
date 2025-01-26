@@ -1,27 +1,96 @@
-h2 {
-    margin-bottom: 40px;
+/* General Styling for Education Section */
+.education-heading {
+  font-size: 2.3rem;
+  font-weight: 700; /* Bold for a strong impact */
+  color: #909397;
+  font-family: 'Playfair Display', serif; /* Elegant stylish font */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Adds spacing between letters for a modern look */
+}
+
+.education-info {
+  margin-bottom: 20px;
+}
+
+.education-icon {
+  font-size: 2rem;
+  color: #e0e4e9;
+}
+
+.education-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #9bbcd8;
+}
+
+.education-detail,
+.education-duration,
+.education-university {
+  font-size: 1rem;
+  color: #ecf3f7;
+  margin-bottom: 5px;
+}
+
+/* Skills Section Styling */
+.skills-heading {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #909397;
+  font-family: 'Playfair Display', serif; /* Elegant stylish font */
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 30px;
+  letter-spacing: 2px;
+}
+
+.skills-section .icon {
+  font-size: 3rem;
+  color: #508ccc;
+}
+
+.skills-section p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #b1a7a7;
+}
+
+.skills-section .col {
+  text-align: center;
+}
+
+.skills-heading,
+.skills-section {
+  margin-top: 30px;
+}
+
+.skills-section {
+  margin-bottom: 30px;
+}
+
+.icon:hover {
+  color: #0056b3;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 767px) {
+  .education-title {
+    font-size: 1.1rem;
+  }
+
+  .education-detail,
+  .education-duration,
+  .education-university {
+    font-size: 0.9rem;
+  }
+
+  .skills-heading,
+  .education-heading {
+    font-size: 1.8rem;
+  }
+
+  .icon {
     font-size: 2.5rem;
-    font-weight: bold;
   }
-  
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .card-subtitle {
-    font-size: 1.1rem;
-    color: #777;
-  }
-  
-  .card-text {
-    font-size: 1.1rem;
-    color: #333;
-  }
-  
-  @media (max-width: 768px) {
-    .card-title {
-      font-size: 1.2rem;
-    }
-  }
-  
+}

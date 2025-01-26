@@ -1,37 +1,69 @@
-// Contacts.js
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import './Contacts.css';  // Import the CSS file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './Contacts.css';
 
 function Contact() {
   return (
-    <div>
-      <h3>Get in touch</h3>
-      <Card className="contact-card mb-4">
-        <Card.Body>
-          
-          <Card.Text>
-            Feel free to reach out to me via email, phone, or through my social media profiles.
-          </Card.Text>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            <li><strong>Email  :  </strong> meghnathayyur@gmail.com</li>
-            <li><strong>Phone  :  </strong> +91 9876543210</li>
-            <li>
-              <strong>LinkedIn  :  </strong>
-              <a href="https://www.linkedin.com/in/meghna-raghu/" target="_blank" rel="noopener noreferrer">
+    <div className="contact-container">
+      <h3 className="contact-header">Get in Touch</h3>
+      <div className="contact-details">
+        <Card className="contact-card">
+          <Card.Body>
+            <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+            <Card.Text>
+              <strong>Email:</strong> meghnathayyur@gmail.com
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="contact-card">
+          <Card.Body>
+            <FontAwesomeIcon icon={faPhone} className="contact-icon" />
+            <Card.Text>
+              <strong>Phone:</strong> +91 9400842052
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="contact-card">
+          <Card.Body>
+            <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />
+            <Card.Text>
+              <strong>LinkedIn:</strong>
+              <a
+                href="https://www.linkedin.com/in/meghna-raghu/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 My LinkedIn Profile
               </a>
-            </li>
-            <li>
-              <strong>GitHub  :  </strong>
-              <a href="https://github.com/MeghnaRaghu" target="_blank" rel="noopener noreferrer">
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="contact-card">
+          <Card.Body>
+            <FontAwesomeIcon icon={faGithub} className="contact-icon" />
+            <Card.Text>
+              <strong>GitHub:</strong>
+              <a
+                href="https://github.com/MeghnaRaghu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 My GitHub
               </a>
-            </li>
-          </ul>
-          <Button variant="primary" href="mailto:meghnathayyur@gmail.com">Send an Email</Button>
-        </Card.Body>
-      </Card>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+      <Button
+        variant="primary"
+        href="mailto:meghnathayyur@gmail.com"
+        className="contact-button"
+      >
+        Send an Email
+      </Button>
     </div>
   );
 }

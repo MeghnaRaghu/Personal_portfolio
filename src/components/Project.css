@@ -1,43 +1,105 @@
-.project-section {
-    padding: 40px 20px; /* Add padding around the section */
-  }
-  
-  .project-card {
-    background-color: #f8f9fa; /* Light background for the cards */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
-  }
-  
-  .project-card:hover {
-    transform: translateY(-5px); /* Lift the card on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
-  }
-  
-  .project-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 10px; /* Space below title */
-  }
-  
-  .project-card .card-body {
+  /* General Styling for Project Section */
+  .project-section {
+    margin-top: 40px;
     padding: 20px;
-    text-align: center;
+    font-family: 'Playfair Display', serif; 
+    /* Optional: Set a background color for the section */
+    color: white; /* Default text color */
   }
-  
-  .card-text {
-    color: #6c757d;
-    font-size: 1rem;
+
+  .project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #536575; /* Dark background for contrast */
+    color: white; /* Default text color for card */
+    border-radius: 12px; /* Add rounded corners for the entire card */
+    overflow: hidden; /* Ensures content doesn't spill out of card */
   }
-  
-  h2 {
-    font-size: 2rem;
+
+  .project-card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.25); /* Enhanced hover shadow */
+  }
+
+  .project-image {
+    height: 180px;
+    object-fit: cover; /* Ensure consistent image dimensions */
+    border-radius: 12px 12px 0 0; /* Match with card corners */
+  }
+
+  .project-title {
     font-weight: bold;
-    color: #343a40; /* Dark color for the title */
+    font-size: 1.4rem; /* Slightly larger font size */
+    
+    margin-bottom: 10px;
+    color: #f9f9f9; /* Light white color for better visibility */
+    text-align: center; /* Center-align the title */
+    text-transform: uppercase; /* Make titles uppercase */
   }
-  
+
+  .project-description {
+    font-size: 1rem; /* Slightly larger for better readability */
+    color: #c0c0c0; /* Lighter gray for descriptions */
+    text-align: justify; /* Justify the description text */
+    margin-bottom: 15px;
+    padding: 0 10px; /* Add padding for spacing */
+  }
+
   @media (max-width: 767px) {
+    /* For small screens */
     .project-card {
-      margin-bottom: 20px;
+      margin-bottom: 20px; /* Add more spacing between cards */
+    }
+
+    .project-image {
+      height: 150px; /* Adjust image height for smaller screens */
+    }
+
+    .project-title {
+      font-size: 1.2rem; /* Adjust title size for smaller screens */
+    }
+
+    .project-description {
+      font-size: 0.9rem; /* Smaller description text */
     }
   }
-  
+
+  @media (max-width: 575px) {
+    /* For extra small screens */
+    .project-card {
+      margin-bottom: 15px; /* Reduce the bottom margin */
+    }
+
+    .project-title {
+      font-size: 1rem; /* Slightly smaller font size for project title */
+    }
+
+    .project-description {
+      font-size: 0.85rem; /* Even smaller font size for descriptions */
+    }
+
+    .project-image {
+      height: 120px; /* Further reduce image height on very small screens */
+    }
+  }
+
+  /* Additional Styling for Overall Section */
+  .project-section h2 {
+    font-family: 'Poppins', sans-serif; /* Use Google Fonts or system fonts */
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff; /* White color for heading */
+    text-transform: uppercase; /* Optional: Make the heading uppercase */
+    letter-spacing: 2px; /* Add some spacing between letters */
+  }
+  .view-more-link {
+    color: #1e90ff; /* Light blue color */
+    font-weight: bold; /* Make the link text bold */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+  }
+
+  .view-more-link:hover {
+    color: #63a4ff; /* Lighter blue when hovered */
+    text-decoration: underline; /* Underline the link on hover */
+  }

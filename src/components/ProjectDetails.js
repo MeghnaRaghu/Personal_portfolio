@@ -1,32 +1,38 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Container, Card, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './ProjectDetails.css';
 
 function ProjectDetails() {
-  const { id } = useParams(); // Retrieve the project ID from the URL
+  const { id } = useParams();
+  const [project, setProject] = useState(null);
 
-  const projectsDetails = {
-    1: { name: 'CoachOneSelf', description: 'Detailed explanation of Project 1.' },
-    2: { name: 'Blood donation Management System', description: 'Detailed explanation of Project 2.' },
-    3: { name: 'Precipitation Predction', description: 'Detailed explanation of Project 3.' },
-  };
+  useEffect(() => {
+    fetch(`http://localhost:8080/api/projects/${id}`)
+      .then((response) => response.json())
+      .then((data) => setProject(data))
+      .catch((error) => console.error('Error fetching project details:', error));
+  }, [id]);
 
-  const project = projectsDetails[id];
+  if (!project) {
+    return <div className="loading">Loading...</div>;
+  }
 
   return (
-    <Container style={{ marginTop: '20px' }}>
-      {project ? (
-        <Card>
-          <Card.Body>
-            <Card.Title>{project.name}</Card.Title>
-            <Card.Text>{project.description}</Card.Text>
-            <Button as={Link} to="/projects" variant="secondary">Back to Projects</Button>
-          </Card.Body>
-        </Card>
-      ) : (
-        <p>Project not found!</p>
-      )}
-    </Container>
+    <div className="project-details-container">
+      <h1 className="project-details-title">{project.title}</h1>
+      <p className="project-details-description">{project.description}</p>
+      <div className="project-details-meta">
+        <p>
+          <strong>Technologies:</strong> {project.technologies}
+        </p>
+        <p>
+          <strong>Duration:</strong> {project.duration}
+        </p>
+      </div>
+      <a href="/projects" className="back-link">
+        Back to Projects
+      </a>
+    </div>
   );
 }
 
