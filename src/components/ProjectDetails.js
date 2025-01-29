@@ -1,38 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { Container, Card, Button, Alert } from 'react-bootstrap';
 import './ProjectDetails.css';
 
 function ProjectDetails() {
-  const { id } = useParams();
-  const [project, setProject] = useState(null);
+  const { id } = useParams(); // Retrieve the project ID from the URL
+  const [project, setProject] = useState(null); // State to store project data
+  const [loading, setLoading] = useState(true); // State to track loading status
+  const [error, setError] = useState(null); // State to track error messages
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/projects/${id}`)
-      .then((response) => response.json())
-      .then((data) => setProject(data))
-      .catch((error) => console.error('Error fetching project details:', error));
-  }, [id]);
+    // Fetch project details from the backend API
+    const fetchProjectDetails = async () => {
+      setLoading(true);  // Reset loading state when fetching data
+      setError(null);  // Reset error state before each request
+      try {
+        const response = await fetch(`http://localhost:8080/api/projectfront/${id}`); // Fixed URL path
+        if (!response.ok) {
+          // If the response is not ok, throw an error
+          throw new Error(`Project with ID ${id} not found`);
+        }
+        const data = await response.json();
+        setProject(data); // Set the project data in state
+        setLoading(false); // Set loading to false once data is fetched
+      } catch (error) {
+        setError(error.message); // Set error message if fetching fails
+        setLoading(false); // Set loading to false when there's an error
+      }
+    };
 
-  if (!project) {
-    return <div className="loading">Loading...</div>;
+    fetchProjectDetails(); // Call the function to fetch project data
+  }, [id]); // Dependency array ensures effect runs when 'id' changes
+
+  if (loading) {
+    return <p>Loading project details...</p>; // Show loading message while fetching data
+  }
+
+  if (error) {
+    return (
+      <Container style={{ marginTop: '20px' }}>
+        <Alert variant="danger">{error}</Alert> {/* Show error message */}
+        <Button as={Link} to="/projects" variant="secondary">Back to Projects</Button>
+      </Container>
+    );
   }
 
   return (
-    <div className="project-details-container">
-      <h1 className="project-details-title">{project.title}</h1>
-      <p className="project-details-description">{project.description}</p>
-      <div className="project-details-meta">
-        <p>
-          <strong>Technologies:</strong> {project.technologies}
-        </p>
-        <p>
-          <strong>Duration:</strong> {project.duration}
-        </p>
-      </div>
-      <a href="/projects" className="back-link">
-        Back to Projects
-      </a>
-    </div>
+    <Container style={{ marginTop: '20px' }}>
+      {project ? (
+        <Card>
+          <Card.Body>
+            <Card.Title>{project.name}</Card.Title>
+            <Card.Text>{project.description}</Card.Text>
+
+            {/* Render additional project details */}
+            <Card.Text>
+              <strong>Technologies:</strong> {project.technologies}
+            </Card.Text>
+            <Card.Text>
+              <strong>Duration:</strong> {project.duration}
+            </Card.Text>
+            <Card.Text>
+              <strong>Details:</strong> {project.details}
+            </Card.Text>
+
+            <Button as={Link} to="/projects" variant="secondary">Back to Projects</Button>
+          </Card.Body>
+        </Card>
+      ) : (
+        <p>Project not found!</p>
+      )}
+    </Container>
   );
 }
 

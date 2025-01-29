@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       {/* Header with Navigation Links */}
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-        <Navbar.Brand as={NavLink} to="/">My Portfolio</Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">Meghna Raghu</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <Nav className="ml-auto">

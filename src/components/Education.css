@@ -1,27 +1,40 @@
 /* General Styling for Education Section */
 .education-heading {
-  font-size: 2.3rem;
+  font-size: 2.5rem; /* Slightly larger for better emphasis */
   font-weight: 700; /* Bold for a strong impact */
   color: #909397;
   font-family: 'Playfair Display', serif; /* Elegant stylish font */
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px; /* Adds spacing between letters for a modern look */
+  margin-bottom: 30px; /* Added space below the heading */
 }
 
 .education-info {
   margin-bottom: 20px;
+  background: #162233; /* Subtle background for card */
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+
+.education-info:hover {
+  transform: translateY(-5px); /* Lift the card slightly on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
 .education-icon {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Increased size for better visibility */
   color: #e0e4e9;
+  margin-bottom: 10px;
 }
 
 .education-title {
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Slightly larger for better readability */
   font-weight: bold;
   color: #9bbcd8;
+  margin-bottom: 8px;
 }
 
 .education-detail,
@@ -34,7 +47,7 @@
 
 /* Skills Section Styling */
 .skills-heading {
-  font-size: 2.3rem;
+  font-size: 2.5rem; /* Increased for better emphasis */
   font-weight: 700;
   color: #909397;
   font-family: 'Playfair Display', serif; /* Elegant stylish font */
@@ -42,41 +55,40 @@
   text-transform: uppercase;
   margin-top: 30px;
   letter-spacing: 2px;
+  margin-bottom: 30px;
 }
 
 .skills-section .icon {
-  font-size: 3rem;
+  font-size: 3rem; /* Increased for better emphasis */
   color: #508ccc;
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover animations */
+}
+
+.skills-section .icon:hover {
+  color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.1); /* Slight enlargement on hover */
 }
 
 .skills-section p {
   font-size: 1rem;
   font-weight: 500;
   color: #b1a7a7;
+  margin-top: 8px; /* Added spacing above the text */
 }
 
 .skills-section .col {
   text-align: center;
-}
-
-.skills-heading,
-.skills-section {
-  margin-top: 30px;
+  margin-bottom: 20px; /* Added space below each column */
 }
 
 .skills-section {
   margin-bottom: 30px;
 }
 
-.icon:hover {
-  color: #0056b3;
-  transition: color 0.3s ease;
-}
-
 /* Responsive Design for Smaller Screens */
 @media (max-width: 767px) {
   .education-title {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Adjusted for smaller screens */
   }
 
   .education-detail,
@@ -87,10 +99,10 @@
 
   .skills-heading,
   .education-heading {
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Reduced size for smaller screens */
   }
 
   .icon {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Reduced size for smaller icons */
   }
 }
